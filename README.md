@@ -7,7 +7,7 @@
 
 # Proyecto Notilog
 
-Nuestro equipo hara una aplicacion web de una API de notificaciones para que a los usuarios se les notifique de que les llego un nuevo documento, que pueda aceptarla o rechazar el documento propuesto, teniendo en cuenta esto:
+Nuestro equipo hará una aplicación web de una API de notificaciones para que a los usuarios se les notifique de que les llego un nuevo documento, en esa notificación debe aceptarla o rechazarla, teniendo en cuenta esto:
 
 epica:
  * Deseo como gerente una APi de notificaciones para que se les notifique que llego un nuevo documento.
