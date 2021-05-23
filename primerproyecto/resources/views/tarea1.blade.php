@@ -40,7 +40,7 @@
   <div class="card-body">
     <h5 class="card-title">Sistema de logueo</h5>
     <p class="card-text">Se inicia sesión mediante un ID de la empresa y una contraseña personal que ha sido encriptada.</p>
-    <a href="#" class="btn btn-primary">Vista previa</a>
+    <a href="{{route('logins')}}" class="btn btn-primary">Login</a>
   </div>
 </div >
     </div>
