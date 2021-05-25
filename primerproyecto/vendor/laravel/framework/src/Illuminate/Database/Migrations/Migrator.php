@@ -470,11 +470,13 @@ class Migrator
     {
         $class = $this->getMigrationClass($this->getMigrationName($path));
 
-        if (class_exists($class)) {
+        if (class_exists($class) && realpath($path) == (new ReflectionClass($class))->getFileName()) {
             return new $class;
         }
 
-        return $this->files->getRequire($path);
+        $migration = $this->files->getRequire($path);
+
+        return is_object($migration) ? $migration : new $class;
     }
 
     /**

@@ -156,6 +156,8 @@ class MailManager implements FactoryContract
      *
      * @param  array  $config
      * @return \Swift_Transport
+     *
+     * @throws \InvalidArgumentException
      */
     public function createTransport(array $config)
     {
@@ -168,7 +170,7 @@ class MailManager implements FactoryContract
             return call_user_func($this->customCreators[$transport], $config);
         }
 
-        if (trim($transport) === '' || ! method_exists($this, $method = 'create'.ucfirst($transport).'Transport')) {
+        if (trim($transport ?? '') === '' || ! method_exists($this, $method = 'create'.ucfirst($transport).'Transport')) {
             throw new InvalidArgumentException("Unsupported mail transport [{$transport}].");
         }
 

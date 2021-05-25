@@ -620,6 +620,17 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
     }
 
     /**
+     * Eager load related model existence values on the model.
+     *
+     * @param  array|string  $relations
+     * @return $this
+     */
+    public function loadExists($relations)
+    {
+        return $this->loadAggregate($relations, '*', 'exists');
+    }
+
+    /**
      * Eager load relationship column aggregation on the polymorphic relation of a model.
      *
      * @param  string  $relation
@@ -781,6 +792,22 @@ abstract class Model implements Arrayable, ArrayAccess, Jsonable, JsonSerializab
         }
 
         return $this->fill($attributes)->save($options);
+    }
+
+    /**
+     * Update the model in the database without raising any events.
+     *
+     * @param  array  $attributes
+     * @param  array  $options
+     * @return bool
+     */
+    public function updateQuietly(array $attributes = [], array $options = [])
+    {
+        if (! $this->exists) {
+            return false;
+        }
+
+        return $this->fill($attributes)->saveQuietly($options);
     }
 
     /**

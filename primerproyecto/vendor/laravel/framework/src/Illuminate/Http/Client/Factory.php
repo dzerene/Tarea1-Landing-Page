@@ -3,7 +3,6 @@
 namespace Illuminate\Http\Client;
 
 use Closure;
-use function GuzzleHttp\Promise\promise_for;
 use GuzzleHttp\Psr7\Response as Psr7Response;
 use Illuminate\Support\Str;
 use Illuminate\Support\Traits\Macroable;
@@ -15,12 +14,16 @@ use PHPUnit\Framework\Assert as PHPUnit;
  * @method \Illuminate\Http\Client\PendingRequest asForm()
  * @method \Illuminate\Http\Client\PendingRequest asJson()
  * @method \Illuminate\Http\Client\PendingRequest asMultipart()
- * @method \Illuminate\Http\Client\PendingRequest attach(string $name, string $contents, string|null $filename = null, array $headers = [])
+ * @method \Illuminate\Http\Client\PendingRequest async()
+ * @method \Illuminate\Http\Client\PendingRequest attach(string|array $name, string $contents = '', string|null $filename = null, array $headers = [])
  * @method \Illuminate\Http\Client\PendingRequest baseUrl(string $url)
  * @method \Illuminate\Http\Client\PendingRequest beforeSending(callable $callback)
  * @method \Illuminate\Http\Client\PendingRequest bodyFormat(string $format)
  * @method \Illuminate\Http\Client\PendingRequest contentType(string $contentType)
+ * @method \Illuminate\Http\Client\PendingRequest dd()
+ * @method \Illuminate\Http\Client\PendingRequest dump()
  * @method \Illuminate\Http\Client\PendingRequest retry(int $times, int $sleep = 0)
+ * @method \Illuminate\Http\Client\PendingRequest sink(string|resource $to)
  * @method \Illuminate\Http\Client\PendingRequest stub(callable $callback)
  * @method \Illuminate\Http\Client\PendingRequest timeout(int $seconds)
  * @method \Illuminate\Http\Client\PendingRequest withBasicAuth(string $username, string $password)
@@ -28,17 +31,16 @@ use PHPUnit\Framework\Assert as PHPUnit;
  * @method \Illuminate\Http\Client\PendingRequest withCookies(array $cookies, string $domain)
  * @method \Illuminate\Http\Client\PendingRequest withDigestAuth(string $username, string $password)
  * @method \Illuminate\Http\Client\PendingRequest withHeaders(array $headers)
+ * @method \Illuminate\Http\Client\PendingRequest withMiddleware(callable $middleware)
  * @method \Illuminate\Http\Client\PendingRequest withOptions(array $options)
  * @method \Illuminate\Http\Client\PendingRequest withToken(string $token, string $type = 'Bearer')
+ * @method \Illuminate\Http\Client\PendingRequest withUserAgent(string $userAgent)
  * @method \Illuminate\Http\Client\PendingRequest withoutRedirecting()
  * @method \Illuminate\Http\Client\PendingRequest withoutVerifying()
- * @method \Illuminate\Http\Client\PendingRequest dump()
- * @method \Illuminate\Http\Client\PendingRequest dd()
- * @method \Illuminate\Http\Client\PendingRequest async()
- * @method \Illuminate\Http\Client\Pool pool()
+ * @method array pool(callable $callback)
  * @method \Illuminate\Http\Client\Response delete(string $url, array $data = [])
- * @method \Illuminate\Http\Client\Response get(string $url, array $query = [])
- * @method \Illuminate\Http\Client\Response head(string $url, array $query = [])
+ * @method \Illuminate\Http\Client\Response get(string $url, array|string|null $query = null)
+ * @method \Illuminate\Http\Client\Response head(string $url, array|string|null $query = null)
  * @method \Illuminate\Http\Client\Response patch(string $url, array $data = [])
  * @method \Illuminate\Http\Client\Response post(string $url, array $data = [])
  * @method \Illuminate\Http\Client\Response put(string $url, array $data = [])
@@ -106,7 +108,11 @@ class Factory
             $headers['Content-Type'] = 'application/json';
         }
 
-        return promise_for(new Psr7Response($status, $headers, $body));
+        $response = new Psr7Response($status, $headers, $body);
+
+        return class_exists(GuzzleHttp\Promise\Create::class)
+            ? \GuzzleHttp\Promise\Create::promiseFor($response)
+            : \GuzzleHttp\Promise\promise_for($response);
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace Illuminate\Database\Console;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\ConfigurationUrlParser;
 use Symfony\Component\Process\Process;
 use UnexpectedValueException;
 
@@ -46,6 +47,8 @@ class DbCommand extends Command
      * Get the database connection configuration.
      *
      * @return array
+     *
+     * @throws \UnexpectedValueException
      */
     public function getConnection()
     {
@@ -55,6 +58,10 @@ class DbCommand extends Command
 
         if (empty($connection)) {
             throw new UnexpectedValueException("Invalid database connection [{$db}].");
+        }
+
+        if (! empty($connection['url'])) {
+            $connection = (new ConfigurationUrlParser)->parseConfiguration($connection);
         }
 
         return $connection;
