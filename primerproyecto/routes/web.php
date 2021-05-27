@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,9 +18,17 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('vista1', function () {
+    //$users = App\User::all();
+    return view('vista1'/*, compact('users') */);
+});
+
+
 
 Route::get('/Principal', function () {
     return view('Principal');
