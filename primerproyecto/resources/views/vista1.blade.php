@@ -43,7 +43,7 @@
       <a href="index3.html" class="brand-link">
         <img src="../img/logo.png" alt="SoftPatagonia Logo" class="brand-image img-circle elevation-3"
           style="opacity: .8">
-        <span class="brand-text font-weight-light">SoftPatagonia</span>
+        <span class="brand-text font-weight-light">Notilog</span>
       </a>
 
       <!-- Sidebar -->
@@ -331,7 +331,7 @@
       </div>
       <script src="https://code.jquery.com/jquery-3.5.1.js">      </script>
       <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
-      <scripts src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
       <script>
       $(document).ready(function() {
         $('#documento').DataTable();

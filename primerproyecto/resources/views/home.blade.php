@@ -23,9 +23,87 @@
 @endsection
 
 @section('seccione')
-<div class="form-floating">
-    <textarea class="form-control" placeholder="Escriba el motivo del rechazo" id="floatingTextarea2" style="height: 200px" style="padding: 30px 50px 0 0"></textarea>                 
-    <button><a href="{{ url('/welcome') }}">Enviar</a></button>
-  </div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+              <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
+            
+                <div class="card">
+                        <div class="card-header">
+                          <h3 class="card-title">Información de los documentos</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                          <table id="example1" class="table table-bordered table-striped">
+                            <thead>
+                            <tr>
+                              <th>ID</th>
+                              <th>FECHA</th>
+                              <th>NOMBRE</th>
+                              <th>ESTADO</th>
+                              <th>ACCION</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                              <td>1</td>
+                              <td>25/05/2021
+                              </td>
+                              <td>documento1</td>
+                              <td>En revision</td>
+                              <td> 
+                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                  <label class="btn btn-success active">
+                                    <input href="{{ route('login') }}" type="radio" name="options" id="option1" autocomplete="off" checked> Aprobar
+                                  </label>
+                                  <label class="btn btn-warning">
+                                    <input type="radio" name="options" id="option2" autocomplete="off"> Revisar
+                                  </label>
+                                  <label class="btn btn-danger">
+                                    <input type="radio" name="options" id="option3" autocomplete="off"> Rechazar
+                                  </label>
+                                </div>
+                                
+                              </td>
+
+                            </tr>
+                            </body>
+                          </table>
+
+                          <nav aria-label="...">
+                            <ul class="pagination">
+                              <li class="page-item ">
+                                <a class="page-link" href="#" tabindex="-1">Previous</a>
+                              </li>
+                              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                              <li class="page-item">
+                                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                              </li>
+                              <li class="page-item"><a class="page-link" href="#">3</a></li>
+                              <li class="page-item">
+                                <a class="page-link" href="#">Next</a>
+                              </li>
+                            </ul>
+                          </nav>
+
+                </div>
+                <!-- /.card -->
+              </section>
+      <!-- /.content -->
+      </div>
+
+
+      <!-- /holiiii  -->
+ 
+
+      </div>
+      <script src="https://code.jquery.com/jquery-3.5.1.js">      </script>
+      <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+      <script>
+      $(document).ready(function() {
+        $('#documento').DataTable();
+      });
+      </script>
+
+    </body>
 @endsection
 

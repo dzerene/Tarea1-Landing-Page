@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/welcome', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
@@ -30,8 +30,8 @@ Route::get('vista1', function () {
 
 
 
-Route::get('/Principal', function () {
-    return view('Principal');
+Route::get('/rechazarcomen', function () {
+    return view('rechazarcomen');
 });
 
 

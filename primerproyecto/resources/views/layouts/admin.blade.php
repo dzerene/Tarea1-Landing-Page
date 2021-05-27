@@ -64,6 +64,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="#" class="d-block">{{ Auth::user()->name }}</a>
           </div>
         </div>
+        
+        <nav class="mt-2">
+          <li class="nav-item">
+            <a href="http://127.0.0.1:8000/post/create" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Create post
+              </p>
+            </a>
+          </li>
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
@@ -92,7 +103,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                           <div class="image">
                             <img src="../img/logout.png" class="img-circle elevation-2" alt="User Image">
                           </div>
-                          {{ __('Logout') }}
+                          {{ __('Cerrar Sesión') }}
                       </a>
                           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                               @csrf
