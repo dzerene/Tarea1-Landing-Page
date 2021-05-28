@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\FileController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -18,16 +18,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
+Route::get('/subirarchivo', function () {
+    return view('uploadfile');
+});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::post('file/upload', 'App\Http\Controllers\FileController@store')->name('file.upload');
+Route::post('upload', 'App\Http\Controllers\FileController@upload')->name('upload');
 
 Route::get('vista1', function () {
     //$users = App\User::all();
     return view('vista1'/*, compact('users') */);
 });
-
 
 
 Route::get('/rechazarcomen', function () {

@@ -64,7 +64,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="#" class="d-block">{{ Auth::user()->name }}</a>
           </div>
         </div>
-        
+        <div class="user-panel mt-3 pb-3 mb-5 d-flex">
+          <div class="image">
+            <img src="../img/upload.png" class="img-circle elevation-2" alt="Upload">
+          </div>
+          <div class="info">
+            <a href="/subirarchivo">Subir nuevo documento</a>
+          </div>
+        </div>
+  
         <nav class="mt-2">
           <li class="nav-item">
             <a href="http://127.0.0.1:8000/post/create" class="nav-link">
@@ -75,6 +83,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li>
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+
+
+        
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
