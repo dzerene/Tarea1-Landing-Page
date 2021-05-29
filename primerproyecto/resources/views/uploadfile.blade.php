@@ -180,9 +180,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </div>
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">
+                                    <a type="submit" href="/notification" class="btn btn-primary">
                                         {{ __('Subir') }}
-                                    </button>
+                                    </a>
                                 
                                 <div class="panel-body" id="uploaded_image">
                                 </div>

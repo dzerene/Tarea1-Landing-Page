@@ -45,7 +45,7 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('post', PostController::class);
     Route::get('/post', [App\Http\Controllers\PostController::class, 'store'])->name('post');
     //Route::post('/post/create', 'PostController@store')->name('store');
-    Route::get('/post/notificationsx', 'App\Http\Controllers\PostController@notificationsx')->name('notificationsx');
+    Route::get('/post/notificationsx', 'PostController@notificationsx', 'notificationsx')->name('notificationsx');
     Route::get('/notification', function(){
         $id=Auth::id();
         User::all()
@@ -53,7 +53,7 @@ Route::middleware(['auth'])->group(function(){
             ->each(function(User $user) {
                 $user->notify(new recivedocument);
             });
-        return view('post.create');
+        return view('uploadfile');
     });
     Route::get('markAsRead',function(){
         auth()->user()->unreadNotifications->markAsRead();
@@ -61,4 +61,4 @@ Route::middleware(['auth'])->group(function(){
     })->name('markAsRead');
     Route::post('/mark-as-read', 'PostController@markNotification')->name('markNotification');
 });
-
+    

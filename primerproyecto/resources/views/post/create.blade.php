@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('content1')
+@section('seccione')
 <form action="/notification">
     <input type="submit" class="btn btn-dark" ></input>
 </form>
