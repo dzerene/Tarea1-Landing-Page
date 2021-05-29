@@ -56,6 +56,8 @@ final class Versions
   'jaybizzle/crawler-detect' => 'v1.2.106@78bf6792cbf9c569dc0bf2465481978fd2ed0de9',
   'jenssegers/agent' => 'v2.6.4@daa11c43729510b3700bc34d414664966b03bffe',
   'jeroennoten/laravel-adminlte' => 'v3.6.0@29de1c28d386f282b799e6261e382a0c7993448b',
+  'laminas/laminas-escaper' => '2.7.0@5e04bc5ae5990b17159d79d331055e2c645e5cc5',
+  'laminas/laminas-zendframework-bridge' => '1.2.0@6cccbddfcfc742eb02158d6137ca5687d92cee32',
   'laravel/fortify' => 'v1.7.12@b45807430194c73aaa9b2f26cb76038cc747466f',
   'laravel/framework' => 'v8.42.1@41ec4897a70eb8729cf0ff34a8354413c54e42a6',
   'laravel/jetstream' => 'v2.3.6@c1f1f4e4a7a690eda215286e2e56bb8acd626160',
@@ -70,6 +72,7 @@ final class Versions
   'nikic/php-parser' => 'v4.10.5@4432ba399e47c66624bc73c8c0f811e5c109576f',
   'opis/closure' => '3.6.2@06e2ebd25f2869e54a306dda991f7db58066f7f6',
   'paragonie/constant_time_encoding' => 'v2.4.0@f34c2b11eb9d2c9318e13540a1dbc2a3afbd939c',
+  'phpoffice/phpword' => '0.18.1@06b90e39a36872c6ee73534e1a073f4b3132fc6a',
   'phpoption/phpoption' => '1.7.5@994ecccd8f3283ecf5ac33254543eb0ac946d525',
   'pragmarx/google2fa' => '8.0.0@26c4c5cf30a2844ba121760fd7301f8ad240100b',
   'psr/container' => '1.1.1@8622567409010282b7aeebe4bb841fe98b58dcaf',
@@ -154,7 +157,7 @@ final class Versions
   'sebastian/type' => '2.3.1@81cd61ab7bbf2de744aba0ea61fae32f721df3d2',
   'sebastian/version' => '3.0.2@c6c1022351a901512170118436c764e473f6de8c',
   'theseer/tokenizer' => '1.2.0@75a63c33a8577608444246075ea0af0d052e452a',
-  'laravel/laravel' => 'dev-master@17a5ac827c7c9bde111d44be1ec72091b7bd0cf0',
+  'laravel/laravel' => 'dev-master@639d03e10d670b702bb71641f0d8e73baf69b8db',
 );
 
     private function __construct()

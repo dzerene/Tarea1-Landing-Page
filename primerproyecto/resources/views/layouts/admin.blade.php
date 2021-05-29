@@ -1,3 +1,11 @@
+<?php
+use App\Http\Controllers\PostController;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use App\Notifications\recivedocument;
+use App\Models\Post;
+?>
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -27,6 +35,42 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link " data-toggle="dropdown" href="#">
+            <i class="pull-rigth far fa-bell"></i>
+            <span class="badge badge-warning navbar-badge">
+            {{(count(auth()->user()->unreadNotifications))}}</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu">
+          <span class="dropdown-header">New Notifications</span>
+          @forelse(auth()->user()->unreadNotifications as $notification)
+          <a href="#" class="dropdown-item">
+              <i class="fas fa-envelope mr-2"></i> 
+              {{$notification->data['MSG']}}
+              <span class="float text-muted text-sm">{{$notification->created_at->diffForHumans()}}</span>
+              <div class="dropdown-divider"></div>
+            </a>
+          @empty
+          <span class="float text-muted text-sm"> Sin notificaicones nuevas</span>
+          @endforelse
+          <span class="dropdown-header">Notifications reads</span>
+          @foreach (auth()->user()->readNotifications as $notification)
+          <a href="#" class="dropdown-item">
+              <i class="fas fa-envelope mr-2"></i> 
+              {{$notification->data['MSG']}}
+              <span class="float text-muted text-sm">{{$notification->created_at->diffForHumans()}}</span>
+              <div class="dropdown-divider"></div>
+            </a>
+          @endforeach
+          <div class="dropdown-divider"></div>
+          <a href="{{ route('markAsRead')}}" class="dropdown-item dropdown-footer"> Mark all read.</a>
+            
+            
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
+              class="fas fa-th-large"></i></a>
         </li>
       </ul>
 
@@ -75,10 +119,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
   
         <nav class="mt-2">
           <li class="nav-item">
-            <a href="http://127.0.0.1:8000/post/create" class="nav-link">
+            <a href="{{ route('post.create') }}" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
               <p>
                 Create post
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{route('post.notificationsx') }" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Notification
               </p>
             </a>
           </li>

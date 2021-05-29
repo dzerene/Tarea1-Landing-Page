@@ -19,15 +19,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <link href="style.css" rel="stylesheet" type="text/css">
   <link href="dropzone.css" rel="stylesheet" type="text/css">
-  
+  <link href="{{asset('css/dropzone.css')}}" rel="stylesheet">
+  <script src={{asset('js/dropzone.js')}}></script>
   <title>AdminLTE 3 | Starter</title>
   
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
   
   <link rel="stylesheet" href="/css/app.css">
-</head>
-<body class="hold-transition sidebar-mini">
+  </head>
+  <body class="hold-transition sidebar-mini">
 
   <div class="wrapper">
 
@@ -143,8 +144,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <div class="card">
                   
                     <div class="card-body">
-                    <form method="POST" action="{{ route('file.upload') }}" aria-label="{{ __('Upload') }}">
-                          @csrf
+                    <form method="POST" action="{{ route('file.store') }}" aria-label="{{ __('Upload') }}">@csrf
                   
                           </div>
                             <div class="form-group row">
@@ -183,6 +183,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('Subir') }}
                                     </button>
+                                
+                                <div class="panel-body" id="uploaded_image">
                                 </div>
                             </div>
                         </form>
@@ -222,8 +224,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <script src="dropzone.js" type="text/javascript"></script>
   <script>
     var drop = new Dropzone('#file', {
-      createImageThumbnails: false,
+      createImageThumbnails: true,
       addRemoveLinks: true,
+      clickable: true,
+      acceptedFiles:".png, .pdf, .jpeg, .jpg",
       url: "{{ route('upload') }}",
       headers: {
         'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content

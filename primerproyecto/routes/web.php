@@ -1,7 +1,10 @@
 <?php
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\FileController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use App\Notifications\recivedocument;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,10 +24,11 @@ Route::get('/', function () {
 Route::get('/subirarchivo', function () {
     return view('uploadfile');
 });
-Auth::routes();
 
+
+Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post('file/upload', 'App\Http\Controllers\FileController@store')->name('file.upload');
+Route::post('file/store', 'App\Http\Controllers\FileController@store')->name('file.store');
 Route::post('upload', 'App\Http\Controllers\FileController@upload')->name('upload');
 
 Route::get('vista1', function () {
@@ -37,4 +41,24 @@ Route::get('/rechazarcomen', function () {
     return view('rechazarcomen');
 });
 
+Route::middleware(['auth'])->group(function(){
+    Route::resource('post', PostController::class);
+    Route::get('/post', [App\Http\Controllers\PostController::class, 'store'])->name('post');
+    //Route::post('/post/create', 'PostController@store')->name('store');
+    Route::get('/post/notificationsx', 'App\Http\Controllers\PostController@notificationsx')->name('notificationsx');
+    Route::get('/notification', function(){
+        $id=Auth::id();
+        User::all()
+            ->except($id)
+            ->each(function(User $user) {
+                $user->notify(new recivedocument);
+            });
+        return view('post.create');
+    });
+    Route::get('markAsRead',function(){
+        auth()->user()->unreadNotifications->markAsRead();
+        return redirect()->back();
+    })->name('markAsRead');
+    Route::post('/mark-as-read', 'PostController@markNotification')->name('markNotification');
+});
 
