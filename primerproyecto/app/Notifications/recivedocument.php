@@ -42,7 +42,7 @@ class recivedocument extends Notification
     {
         return (new MailMessage)
                     ->line('Ha llegado un nuevo documento que evaluar.')
-                    ->action('Revisar', url('/'));
+                    ->action('Revisar', url('/home'));
     }
     public function toDatabase( ){
         return[
