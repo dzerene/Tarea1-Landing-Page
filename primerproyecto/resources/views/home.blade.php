@@ -35,39 +35,41 @@
                           <table id="example1" class="table table-bordered table-striped">
                             <thead>
                             <tr>
-                              <th>ID</th>
+                              
                               <th>FECHA</th>
                               <th>NOMBRE</th>
-                              <th>ESTADO</th>
+                              
                               <th>ACCION</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                              <td>1</td>
-                              <td>25/05/2021
-                              </td>
-                              <td>documento1</td>
-                              <td>En revision</td>
-                              <td> 
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                  <label class="btn btn-success active">
-                                    <input href="{{ route('login') }}" type="radio" name="options" id="option1" autocomplete="off" checked> Aprobar
-                                  </label>
-                                  <label class="btn btn-warning">
-                                    <input type="radio" name="options" id="option2" autocomplete="off"> Revisar
-                                  </label>
-                                  <label class="btn btn-danger">
-                                    <input type="radio" name="options" id="option3" autocomplete="off"> Rechazar
-                                  </label>
-                                </div>
-                                
-                              </td>
+                              @foreach($documentos as $documento)
+                              <tr>
 
-                            </tr>
+                                <td>{{ $documento->title }}</td>
+                                <td>{{ $documento->overview }}</td>
+                                
+                                
+                                
+                                <td> 
+                                  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-success active">
+                                      <input href="{{ route('login') }}" type="radio" name="options" id="option1" autocomplete="off" checked> Aprobar
+                                    </label>
+                                    <label class="btn btn-warning">
+                                      <input type="radio" name="options" id="option2" autocomplete="off"> Revisar
+                                    </label>
+                                    <label class="btn btn-danger">
+                                      <input type="radio" name="options" id="option3" autocomplete="off"> Rechazar
+                                    </label>
+                                  </div>
+                                  
+                                </td>
+                                @endforeach
+                              </tr>
                             </body>
                           </table>
-
+                          <!-- /holiiii 
                           <nav aria-label="...">
                             <ul class="pagination">
                               <li class="page-item ">
@@ -83,7 +85,7 @@
                               </li>
                             </ul>
                           </nav>
-
+                           -->
                 </div>
                 <!-- /.card -->
               </section>
@@ -99,8 +101,8 @@
       <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
       <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
       <script>
-      $(document).ready(function() {
-        $('#documento').DataTable();
+      $($documento).ready(function() {
+        $('#documentos').DataTable();
       });
       </script>
 

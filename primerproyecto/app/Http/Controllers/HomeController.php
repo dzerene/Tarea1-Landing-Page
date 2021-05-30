@@ -23,6 +23,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $documentos = \DB::table('posts')->select('id','Nombre documento','Contenido documento')->get();
+        return view('home', compact('documentos'));
     }
+     
 }

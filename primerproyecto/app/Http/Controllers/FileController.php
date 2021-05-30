@@ -40,6 +40,12 @@ class FileController extends Controller
         'id' => $upload->id
       ]);
     }
+
+    public function index(){
+      $documentos  = \DB::table('files')->select('title','overview')->get();
+      return view('home', compact('documentos'));
+    }
 }
+
 
 
