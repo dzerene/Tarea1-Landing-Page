@@ -121,20 +121,31 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="/subirarchivo">Subir nuevo documento</a>
           </div>
         </div>
+      <!--  <div class="user-panel mt-3 pb-3 mb-5 d-flex">
+          <div class="image">
+            <img src="../img/not.png" class="img-circle elevation-2" alt="Upload">
+          </div>
+          <div class="info">
+            <a>Notificacion</a>
+          </div>
+        </div>-->
+        <div class="user-panel mt-3 pb-3 mb-5 d-flex">
+          <div class="image">
+            <img src="../img/logout.png" class="img-circle elevation-2" alt="Logout">
+          </div>
+          <div class="info">
+            <a class="nav-link " href="{{ route('logout') }}"
+                          onclick="event.preventDefault();
+                          document.getElementById('logout-form').submit();">
+                          {{ __('Cerrar Sesión') }}
+          </div>
+        </div>
   <!---------------------------------------------------------------------------------------
         <nav class="mt-2">
             <a href="{{ route('post.create') }}" class="nav-link">
             </a>
           SI SACAMOS ESTO QUEDA LA Z
           ----------------------------------------------------------------------------------->
-          <li class="nav-item">
-            <a href="{route('post.notificationsx') }" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
-              <p>
-                Notification
-              </p>
-            </a>
-          </li>
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
 
@@ -164,11 +175,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <a class="nav-link " href="{{ route('logout') }}"  
                           onclick="event.preventDefault();
                           document.getElementById('logout-form').submit();">
-                      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                          <div class="image">
-                            <img src="../img/logout.png" class="img-circle elevation-2" alt="User Image">
-                          </div>
-                          {{ __('Cerrar Sesión') }}
                       </a>
                           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                               @csrf
