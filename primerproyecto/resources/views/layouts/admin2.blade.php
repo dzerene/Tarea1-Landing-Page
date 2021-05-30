@@ -17,12 +17,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/dropzone.min.css" integrity="sha512-jU/7UFiaW5UBGODEopEqnbIAHOI8fO6T99m7Tsmqs2gkdujByJfkCbbfPSN4Wlqlb9TGnsuC0YgUgWkRBK7B9A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-  <link href="style.css" rel="stylesheet" type="text/css">
-  <link href="dropzone.css" rel="stylesheet" type="text/css">
-  <link href="{{asset('css/dropzone.css')}}" rel="stylesheet">
-  <script src={{asset('js/dropzone.js')}}></script>
+
   <title>Notilog</title>
   <link rel="shortcut icon" href="img/partelogo.png" type="image/x-icon">
   <!-- CSRF Token -->
@@ -121,12 +116,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="/subirarchivo">Subir nuevo documento</a>
           </div>
         </div>
-  <!---------------------------------------------------------------------------------------
+  
         <nav class="mt-2">
+          <li class="nav-item">
             <a href="{{ route('post.create') }}" class="nav-link">
+              <i class="nav-icon fas fa-users"></i>
+              <p>
+                Create post
+              </p>
             </a>
-          SI SACAMOS ESTO QUEDA LA Z
-          ----------------------------------------------------------------------------------->
+          </li>
           <li class="nav-item">
             <a href="{route('post.notificationsx') }" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
@@ -219,22 +218,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- ./wrapper -->
 
   <!-- REQUIRED SCRIPTS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
   <script src="/js/app.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.2/min/dropzone.min.js" integrity="sha512-VQQXLthlZQO00P+uEu4mJ4G4OAgqTtKG1hri56kQY1DtdLeIqhKUp9W/lllDDu3uN3SnUNawpW7lBda8+dSi7w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="dropzone.js" type="text/javascript"></script>
-  <script>
-    var drop = new Dropzone('#file', {
-      createImageThumbnails: true,
-      addRemoveLinks: true,
-      clickable: true,
-      acceptedFiles:".png, .pdf, .jpeg, .jpg",
-      url: "{{ route('upload') }}",
-      headers: {
-        'X-CSRF-TOKEN': document.head.querySelector('meta[name="csrf-token"]').content
-      }
-    });
-  </script>
+  
 </body>
 
 </html>

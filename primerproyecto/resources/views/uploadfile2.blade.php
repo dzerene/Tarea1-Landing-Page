@@ -1,11 +1,4 @@
-<?php
-use App\Http\Controllers\PostController;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
-use App\Models\User;
-use App\Notifications\recivedocument;
-use App\Models\Post;
-?>
+
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -14,6 +7,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <html lang="en">
 
 <head>
+  <style>
+    h1 {
+      text-align: right;
+    }
+  </style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -23,14 +21,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link href="dropzone.css" rel="stylesheet" type="text/css">
   <link href="{{asset('css/dropzone.css')}}" rel="stylesheet">
   <script src={{asset('js/dropzone.js')}}></script>
-  <title>Notilog</title>
-  <link rel="shortcut icon" href="img/partelogo.png" type="image/x-icon">
+  <title>AdminLTE 3 | Starter</title>
+  
   <!-- CSRF Token -->
   <meta name="csrf-token" content="{{ csrf_token() }}">
   
   <link rel="stylesheet" href="/css/app.css">
-</head>
-<body class="hold-transition sidebar-mini">
+  </head>
+  <body class="hold-transition sidebar-mini">
 
   <div class="wrapper">
 
@@ -40,42 +38,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <ul class="navbar-nav">
         <li class="nav-item">
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link " data-toggle="dropdown" href="#">
-            <i class="pull-rigth far fa-bell"></i>
-            <span class="badge badge-warning navbar-badge">
-            {{(count(auth()->user()->unreadNotifications))}}</span>
-          </a>
-          <div class="dropdown-menu dropdown-menu-lg dropdown-menu">
-          <span class="dropdown-header">New Notifications</span>
-          @forelse(auth()->user()->unreadNotifications as $notification)
-          <a href="#" class="dropdown-item">
-              <i class="fas fa-envelope mr-2"></i> 
-              {{$notification->data['MSG']}}
-              <span class="float text-muted text-sm">{{$notification->created_at->diffForHumans()}}</span>
-              <div class="dropdown-divider"></div>
-            </a>
-          @empty
-          <span class="float text-muted text-sm"> Sin notificaicones nuevas</span>
-          @endforelse
-          <span class="dropdown-header">Notifications reads</span>
-          @foreach (auth()->user()->readNotifications as $notification)
-          <a href="#" class="dropdown-item">
-              <i class="fas fa-envelope mr-2"></i> 
-              {{$notification->data['MSG']}}
-              <span class="float text-muted text-sm">{{$notification->created_at->diffForHumans()}}</span>
-              <div class="dropdown-divider"></div>
-            </a>
-          @endforeach
-          <div class="dropdown-divider"></div>
-          <a href="{{ route('markAsRead')}}" class="dropdown-item dropdown-footer"> Mark all read.</a>
-            
-            
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button"><i
-              class="fas fa-th-large"></i></a>
         </li>
       </ul>
 
@@ -96,10 +58,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
       <!-- Brand Logo -->
-      <a href="{{ url('/welcome')}}" class="brand-link">
+      <a href="Principal" class="brand-link">
         <img src="../img/logo.png" alt="SoftPatagonia Logo" class="brand-image img-circle elevation-3"
           style="opacity: .8">
-        <span class="brand-text font-weight-light">NotiLog</span>
+        <span class="brand-text font-weight-light">SoftPatagonia</span>
       </a>
 
       <!-- Sidebar -->
@@ -113,33 +75,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="#" class="d-block">{{ Auth::user()->name }}</a>
           </div>
         </div>
-        <div class="user-panel mt-3 pb-3 mb-5 d-flex">
-          <div class="image">
-            <img src="../img/upload.png" class="img-circle elevation-2" alt="Upload">
-          </div>
-          <div class="info">
-            <a href="/subirarchivo">Subir nuevo documento</a>
-          </div>
-        </div>
-  <!---------------------------------------------------------------------------------------
-        <nav class="mt-2">
-            <a href="{{ route('post.create') }}" class="nav-link">
-            </a>
-          SI SACAMOS ESTO QUEDA LA Z
-          ----------------------------------------------------------------------------------->
-          <li class="nav-item">
-            <a href="{route('post.notificationsx') }" class="nav-link">
-              <i class="nav-icon fas fa-users"></i>
-              <p>
-                Notification
-              </p>
-            </a>
-          </li>
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
-
-
-        
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
@@ -168,7 +104,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                           <div class="image">
                             <img src="../img/logout.png" class="img-circle elevation-2" alt="User Image">
                           </div>
-                          {{ __('Cerrar Sesión') }}
+                          {{ __('Logout') }}
                       </a>
                           <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                               @csrf
@@ -178,35 +114,96 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </li>
           </ul>
         </nav>
-        <!-- /.sidebar-menu -->
       </div>
-      <!-- /.sidebar -->
     </aside>
-
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <div class="content-header">
         <div class="container-fluid">
+          <div class="row mb-6">
+            <div class="col-sm-12">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="/home">Home</a></li>
+          </div>
+        </div>
           <div class="row mb-2">
             <div class="col-sm-6">
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-                <li  class="breadcrumb-item"><a href="#">Home</a></li>                
-                <li class="breadcrumb-item active">Starter Page</li>
-              </ol>
-            </div><!-- /.col -->
-          </div><!-- /.row -->
+              <h1 class="m-0 text-dark">Subir documento</h1>
+            </div>
+
+      </div>
+      <div class="container">
+        <div class='content'>
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+                @if(session()->get('message'))
+                <div class="alert alert-success">
+                  {{ session()->get('message') }}
+                </div>
+                @endif
+                <div class="card">
+                  
+                    <div class="card-body">
+                    <form method="POST" action="{{ route('file.store') }}" aria-label="{{ __('Upload') }}">@csrf
+                  
+                          </div>
+                            <div class="form-group row">
+                              <label for="title" class="col-sm-4 col-form-label text-md-right">{{ __('Seleccionar Archivo') }}</label>
+                              <div class="col-md-6">
+                                <div id="file" class="dropzone"></div>
+                              </div>    
+                            </div>
+                            <div class="form-group row">
+                                <label for="title" class="col-sm-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
+                                <div class="col-md-6">
+                                    <input id="title" type="text" class="form-control{{ $errors->has('title') ? ' is-invalid' : '' }}" name="title" value="{{ old('title') }}" required autofocus />
+                                    @if ($errors->has('title'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('title') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="overview" class="col-sm-4 col-form-label text-md-right">{{ __('Descripción') }}</label>
+                                <div class="col-md-6">
+                                    <textarea id="overview" cols="10" rows="10" class="form-control{{ $errors->has('overview') ? ' is-invalid' : '' }}" name="overview" value="{{ old('overview') }}" required autofocus></textarea>
+                                    @if ($errors->has('overview'))
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $errors->first('overview') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+  
+                                </div>
+                            </div>
+                            <div class="form-group row mb-0">
+                                <div class="col-md-8 offset-md-4">
+                                    <a type="submit" href="/notification" class="btn btn-primary">
+                                        {{ __('Subir') }}
+                                    </a>
+                                
+                                <div class="panel-body" id="uploaded_image">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+              </div>
+            </div>
+            <!-- /.col-md-6 -->
+          </div>
+          <!-- /.row -->
         </div><!-- /.container-fluid -->
       </div>
-      <!-- /.content-header -->
+      <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
 
-      <!---------------------------------------------------------------AQUI SE TRABAJA------------------------------------------------------------------------------------------->
-      <div class="contenedore">
-        @yield('seccione')
-      </div>
-      <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
     <!-- Control Sidebar -->
     <aside class="control-sidebar control-sidebar-dark">
       <!-- Control sidebar content goes here -->
@@ -215,7 +212,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <p>Sidebar content</p>
       </div>
     </aside>
-  
+    <!-- /.control-sidebar -->
+
+  </div>
   <!-- ./wrapper -->
 
   <!-- REQUIRED SCRIPTS -->
