@@ -47,7 +47,7 @@
         
     </header>
     <main>
-        <section class="contenedor sobre-nosotros">
+       <!--- <section class="contenedor sobre-nosotros">
             <h2>Nuestro Trabajo</h2>
             <div class="contenedor-sobre-nosotros">
                 <img src="img/ilustracion.svg" alt="" class="imagen-about-us">
@@ -62,7 +62,7 @@
                         ipsa doloribus excepturi?</p>
                 </div>
             </div>
-        </section>
+        </section> --->
         <section class="portafolio">
             <div class="contenedor">
                 <h2 class="titulo">Nuestro Equipo</h2>
@@ -72,6 +72,7 @@
                         <div class="hover-galeria">
                             <img src="img/icono.png" alt="">
                             <p>Esteban Simon Vargas Aceña</p>
+                            <h4>Development Team</h4>
                         </div>
                     </div>
                     <div class="imagen-port">
@@ -79,6 +80,15 @@
                         <div class="hover-galeria">
                             <img src="img/icono.png" alt="">
                             <p>Diego Andres Zerené Avila</p>
+                            <h4>Development Team</h4>
+                        </div>
+                    </div>
+                    <div class="imagen-port">
+                        <img src="img/cristian.jpg" alt="">
+                        <div class="hover-galeria">
+                            <img src="img/icono.png" alt="">
+                            <p>Cristian Andrés San Martín Jara</p>
+                            <h4>Development Team</h4>
                         </div>
                     </div>
                     <div class="imagen-port">
@@ -86,25 +96,21 @@
                         <div class="hover-galeria">
                             <img src="img/icono.png" alt="">
                             <p>Dario Alonso Martínez Toy</p>
+                            <h4>Product Owner</h4>
                         </div>
                     </div>
                     <div class="imagen-port">
                         <img src="img/mati.jpg" alt="">
                         <div class="hover-galeria">
                             <img src="img/icono.png" alt="">
-                            <p>Francisco Javier Valdés Martínez</p>
-                        </div>
-                    </div>
-                    <div class="imagen-port">
-                        <img src="img/mati.jpg" alt="">
-                        <div class="hover-galeria">
-                            <img src="img/icono.png" alt="">
-                            <p>Cristian Andrés San Martín Jara</p>
+                            <p>Francisco Javier Valdés Martínez</p> 
+                            <h4>Scrum Master</h4>                           
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+        <!--
         <section class="cliente contenedor">
             <h2>Que dicen nuestros clientes</h2>
             <div class="cards">
@@ -145,21 +151,21 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> ----->
     </main>
     <footer>
         <div class="contenedor-footer">
             <div class="content-foo">
                 <h4>Telefono</h4>
-                <p>13134456</p>
+                <p>913224456</p>
             </div>
             <div class="content-foo">
                 <h4>Correo</h4>
-                <p>yoelchupa@gmail.com</p>
+                <p>Notilog@gmail.com</p>
             </div>
             <div class="content-foo">
                 <h4>Ubicacion</h4>
-                <p>Antonio Varas 408</p>
+                <p>Antonio Varas 810</p>
             </div>
         </div>
         <h2 class="titulo-final">&copy; Notilog Design | Dario Martinez - Esteban Vargas - Diego Zerené - Francisco
