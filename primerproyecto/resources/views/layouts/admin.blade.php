@@ -52,6 +52,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           @forelse(auth()->user()->unreadNotifications as $notification)
           <a href="#" class="dropdown-item">
               <i class="fas fa-envelope mr-2"></i> 
+              {{$notification->data['name']}}
               {{$notification->data['MSG']}}
               <span class="float text-muted text-sm">{{$notification->created_at->diffForHumans()}}</span>
               <div class="dropdown-divider"></div>

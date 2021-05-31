@@ -46,7 +46,8 @@ class recivedocument extends Notification
     }
     public function toDatabase( ){
         return[
-            'MSG'=> 'Nuevo documento ingresado'
+            'name'=>auth()->user()->name,
+            'MSG'=> 'Ingreso documento'
         ];
     }
 
