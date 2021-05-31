@@ -37,7 +37,7 @@
 <body>
     <header>
         <nav>                 
-            <a href="{{ route('login') }}" target="_blank" styles="">Iniciar Sesión</a>
+            <a href="/login" styles="">Iniciar Sesión</a>
         </nav>
         <section class="textos-header">
             <h1>NotiLog</h1>
