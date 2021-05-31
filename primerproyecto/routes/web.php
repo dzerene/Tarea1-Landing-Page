@@ -30,12 +30,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post('file/store', 'App\Http\Controllers\FileController@store')->name('file.store');
 Route::post('upload', 'App\Http\Controllers\FileController@upload')->name('upload');
-
-Route::get('vista1', function () {
-    //$users = App\User::all();
-    return view('vista1'/*, compact('users') */);
-});
-
+Route::get('documentos', 'App\Http\Controllers\FileController@index')->name('documentos');
 
 Route::get('/rechazarcomen', function () {
     return view('rechazarcomen');

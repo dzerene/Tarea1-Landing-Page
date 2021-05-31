@@ -42,10 +42,8 @@ class FileController extends Controller
     }
 
     public function index(){
-      $documentos  = \DB::table('files')->select('title','overview')->get();
+      //$documentos  = \DB::table('files')->select('title','overview')->get();
+      $documentos = File::all();
       return view('home', compact('documentos'));
     }
 }
-
-
-

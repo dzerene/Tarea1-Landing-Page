@@ -35,21 +35,20 @@
                           <table id="example1" class="table table-bordered table-striped">
                             <thead>
                             <tr>
-                              
+                              <th>ID</th>
                               <th>FECHA</th>
-                              <th>NOMBRE</th>
-                              
+                              <th>NOMBRE DEL DOCUMENTO</th>
                               <th>ACCION</th>
                             </tr>
                             </thead>
                             <tbody>
-                              @foreach($documentos as $documento)
+                              
                               <tr>
 
-                                <td>{{ $documento->title }}</td>
-                                <td>{{ $documento->overview }}</td>
-                                
-                                
+                                <td>1</td>
+                                <td>21/05/2021</td>
+                                <td>documento 1</td>
+                                                            
                                 
                                 <td> 
                                   <div class="btn-group btn-group-toggle" data-toggle="buttons">
@@ -65,7 +64,28 @@
                                   </div>
                                   
                                 </td>
-                                @endforeach
+                                
+                                <tr>
+
+                                <td>2</td>
+                                <td>22/05/2021</td>
+                                <td>documento 2</td>
+                                                            
+                                
+                                <td> 
+                                  <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                    <label class="btn btn-success active">
+                                      <input href="{{ route('login') }}" type="radio" name="options" id="option1" autocomplete="off" checked> Aprobar
+                                    </label>
+                                    <label class="btn btn-warning">
+                                      <input type="radio" name="options" id="option2" autocomplete="off"> Revisar
+                                    </label>
+                                    <label class="btn btn-danger">
+                                      <input type="radio" name="options" id="option3" autocomplete="off"> Rechazar
+                                    </label>
+                                  </div>
+                                  
+                                </td>
                               </tr>
                             </body>
                           </table>
