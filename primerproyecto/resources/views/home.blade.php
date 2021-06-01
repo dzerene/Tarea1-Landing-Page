@@ -59,7 +59,7 @@
                                       <input type="radio" name="options" id="option2" autocomplete="off"> Revisar
                                     </label>
                                     <label class="btn btn-danger">
-                                      <input type="radio" name="options" id="option3" autocomplete="off"> Rechazar
+                                      <a href="rechazarcomen" type="radio" name="options" id="option3" autocomplete="off"> Rechazar
                                     </label>
                                   </div>
                                   
@@ -81,7 +81,7 @@
                                       <input type="radio" name="options" id="option2" autocomplete="off"> Revisar
                                     </label>
                                     <label class="btn btn-danger">
-                                      <input type="radio" name="options" id="option3" autocomplete="off"> Rechazar
+                                    <a href="rechazarcomen" type="radio" name="options" id="option3" autocomplete="off"> Rechazar
                                     </label>
                                   </div>
                                   
