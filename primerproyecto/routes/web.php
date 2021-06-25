@@ -31,7 +31,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::post('file/store', 'App\Http\Controllers\FileController@store')->name('file.store');
 Route::post('upload', 'App\Http\Controllers\FileController@upload')->name('upload');
 Route::get('documentos', 'App\Http\Controllers\FileController@index')->name('documentos');
-
+Route::get('/home','App\Http\Controllers\FileController@index');
 Route::get('/rechazarcomen', function () {
     return view('rechazarcomen');
 });

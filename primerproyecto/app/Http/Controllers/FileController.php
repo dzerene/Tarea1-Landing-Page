@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Upload;
-
+use DB;
 class FileController extends Controller
 {
     public function store(Request $request)
@@ -26,7 +26,7 @@ class FileController extends Controller
     public function upload(Request $request)
     {
       $uploadedFile = $request->file('file');
-      $filename = time().$uploadedFile->getClientOriginalName();
+      $filename =$uploadedFile->getClientOriginalName();
       Storage::disk('local')->putFileAs(
         'files/'.$filename,
         $uploadedFile,
@@ -42,8 +42,7 @@ class FileController extends Controller
     }
 
     public function index(){
-      //$documentos  = \DB::table('files')->select('title','overview')->get();
-      $documentos = File::all();
-      return view('home', compact('documentos'));
+      $documentos  = DB::table('uploads')->select('*')->get();
+      return view('home',['users'=>$documentos]);
     }
 }

@@ -32,63 +32,42 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                          <table id="example1" class="table table-bordered table-striped">
-                            <thead>
+                        <table class="table table-bordered table-striped">
+                          <thead>
                             <tr>
                               <th>ID</th>
-                              <th>FECHA</th>
-                              <th>NOMBRE DEL DOCUMENTO</th>
-                              <th>ACCION</th>
+                              <th>ID Usuario</th>
+                              <th>Nombre Archivo</th>
+                              <th>Subido</th>
+                              <th>Acción</th>
                             </tr>
-                            </thead>
-                            <tbody>
+                          </thead>
+                          <tbody>
+                          @foreach ($users as $user)
+                            <tr>
+                            <td>{{ $user->id }}</td>
+                            <td>{{ $user->user_id }}</td>
+                            <td>{{ $user->filename }}</td>
+                            <td>{{ $user->created_at}}</td>
+                            <td> 
+                              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                <label class="btn btn-success active">
+                                  <input href="{{ route('login') }}" type="radio" name="options" id="option1" autocomplete="off" checked> Aprobar
+                                </label>
+                                <label class="btn btn-warning">
+                                  <input type="radio" name="options" id="option2" autocomplete="off"> Revisar
+                                </label>
+                                <label class="btn btn-danger">
+                                  <a href="rechazarcomen" type="radio" name="options" id="option3" autocomplete="off"> Rechazar
+                                </label>
+                              </div>
                               
-                              <tr>
-
-                                <td>1</td>
-                                <td>21/05/2021</td>
-                                <td>documento 1</td>
-                                                            
-                                
-                                <td> 
-                                  <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-success active">
-                                      <input href="{{ route('login') }}" type="radio" name="options" id="option1" autocomplete="off" checked> Aprobar
-                                    </label>
-                                    <label class="btn btn-warning">
-                                      <input type="radio" name="options" id="option2" autocomplete="off"> Revisar
-                                    </label>
-                                    <label class="btn btn-danger">
-                                      <a href="rechazarcomen" type="radio" name="options" id="option3" autocomplete="off"> Rechazar
-                                    </label>
-                                  </div>
-                                  
-                                </td>
-                                
-                                <tr>
-
-                                <td>2</td>
-                                <td>22/05/2021</td>
-                                <td>documento 2</td>
-                                                            
-                                
-                                <td> 
-                                  <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-success active">
-                                      <input href="{{ route('login') }}" type="radio" name="options" id="option1" autocomplete="off" checked> Aprobar
-                                    </label>
-                                    <label class="btn btn-warning">
-                                      <input type="radio" name="options" id="option2" autocomplete="off"> Revisar
-                                    </label>
-                                    <label class="btn btn-danger">
-                                    <a href="rechazarcomen" type="radio" name="options" id="option3" autocomplete="off"> Rechazar
-                                    </label>
-                                  </div>
-                                  
-                                </td>
-                              </tr>
-                            </body>
-                          </table>
+                            </td>
+                            </tr>
+                            @endforeach
+                          </tbody>
+                        </table>
+                      </div>
                           <!-- /holiiii 
                           <nav aria-label="...">
                             <ul class="pagination">

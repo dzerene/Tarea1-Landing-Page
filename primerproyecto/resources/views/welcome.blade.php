@@ -84,14 +84,6 @@
                         </div>
                     </div>
                     <div class="imagen-port">
-                        <img src="img/cristian.jpg" alt="">
-                        <div class="hover-galeria">
-                            <img src="img/icono.png" alt="">
-                            <p>Cristian Andrés San Martín Jara</p>
-                            <h4>Development Team</h4>
-                        </div>
-                    </div>
-                    <div class="imagen-port">
                         <img src="img/bryansuazo.jpg" alt="">
                         <div class="hover-galeria">
                             <img src="img/icono.png" alt="">
