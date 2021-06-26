@@ -39,6 +39,7 @@
                               <th>ID Usuario</th>
                               <th>Nombre Archivo</th>
                               <th>Subido</th>
+                              <th>Estado</th>
                               <th>Acción</th>
                             </tr>
                           </thead>
@@ -49,18 +50,18 @@
                             <td>{{ $user->user_id }}</td>
                             <td>{{ $user->filename }}</td>
                             <td>{{ $user->created_at}}</td>
+                            <td>{{ $user->estado}}</td>
                             <td> 
-                              <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                <label class="btn btn-success active">
-                                  <input href="{{ route('login') }}" type="radio" name="options" id="option1" autocomplete="off" checked> Aprobar
-                                </label>
-                                <label class="btn btn-warning">
-                                  <input type="radio" name="options" id="option2" autocomplete="off"> Revisar
-                                </label>
-                                <label class="btn btn-danger">
-                                  <a href="rechazarcomen" type="radio" name="options" id="option3" autocomplete="off"> Rechazar
-                                </label>
-                              </div>
+                              
+                              <a  class="btn btn-primary">
+                                Aprobar
+                            </a>
+                            <a  class="btn btn-primary">
+                              Revisar
+                          </a>
+                          <a  class="btn btn-primary" href="/rechazo"  onclick="return confirm('¿Está seguro de que desea rechazar el documento?')">
+                            Rechazar
+                        </a>
                               
                             </td>
                             </tr>

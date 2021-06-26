@@ -116,6 +116,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
         <div class="user-panel mt-3 pb-3 mb-5 d-flex">
           <div class="image">
+            <img src="../img/file.png" class="img-circle elevation-2" alt="Doc">
+          </div>
+          <div class="info">
+            <a href="/ver">Ver documentos</a>
+          </div>
+        </div>
+        <div class="user-panel mt-3 pb-3 mb-5 d-flex">
+          <div class="image">
             <img src="../img/upload.png" class="img-circle elevation-2" alt="Upload">
           </div>
           <div class="info">

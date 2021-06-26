@@ -18,6 +18,7 @@ class CreateUploadsTable extends Migration
             $table->string('filename');
             $table->softDeletes();
             $table->timestamps();
+            $table->string('estado')->default("Esperando revisión");
 
 
         });

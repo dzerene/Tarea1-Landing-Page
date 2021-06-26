@@ -14,7 +14,7 @@ class FileController extends Controller
         'title' => 'required:max:255',
         'overview' => 'required',
       ]);
-
+      $this->validate($request,['file'=>'required|file|mimes:png,jpg,pdf,docx|max:20000']);
       auth()->user()->files()->create([
         'title' => $request->get('title'),
         'overview' => $request->get('overview'),
@@ -44,5 +44,26 @@ class FileController extends Controller
     public function index(){
       $documentos  = DB::table('uploads')->select('*')->get();
       return view('home',['users'=>$documentos]);
+    }
+
+    public function ver(){
+          $files=Upload::orderby('id')->paginate(30);
+          return view('archivo.ver',['files'=>$files]);
+  
+    }
+    public function show(Request $request,$file) {
+      $uploadedFile = $request->file('file');
+      $file_path =storage_path('app\files\\'.$file.'\\'.$file,
+      $uploadedFile,
+      $file
+    );
+      return response()->download($file_path);
+    }
+  
+    public function delete($id){
+      $del=Upload::find($id);
+      Storage::delete($del->path);
+      $del->delete();
+      return redirect('/ver');
     }
 }

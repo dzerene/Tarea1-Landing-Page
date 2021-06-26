@@ -638,7 +638,6 @@ class ComposerStaticInit31b1a958d871fc49d3942c0300b2b338
         'App\\Models\\File' => __DIR__ . '/../..' . '/app/Models/File.php',
         'App\\Models\\Post' => __DIR__ . '/../..' . '/app/Models/Post.php',
         'App\\Models\\Postnew' => __DIR__ . '/../..' . '/app/Models/Postnew.php',
-        'App\\Models\\Rechazo' => __DIR__ . '/../..' . '/app/Models/Rechazo.php',
         'App\\Models\\Upload' => __DIR__ . '/../..' . '/app/Models/Upload.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Notifications\\recivedocument' => __DIR__ . '/../..' . '/app/Notifications/recivedocument.php',

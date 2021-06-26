@@ -38,7 +38,6 @@ return array(
     'App\\Models\\File' => $baseDir . '/app/Models/File.php',
     'App\\Models\\Post' => $baseDir . '/app/Models/Post.php',
     'App\\Models\\Postnew' => $baseDir . '/app/Models/Postnew.php',
-    'App\\Models\\Rechazo' => $baseDir . '/app/Models/Rechazo.php',
     'App\\Models\\Upload' => $baseDir . '/app/Models/Upload.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Notifications\\recivedocument' => $baseDir . '/app/Notifications/recivedocument.php',

@@ -32,8 +32,12 @@ Route::post('file/store', 'App\Http\Controllers\FileController@store')->name('fi
 Route::post('upload', 'App\Http\Controllers\FileController@upload')->name('upload');
 Route::get('documentos', 'App\Http\Controllers\FileController@index')->name('documentos');
 Route::get('/home','App\Http\Controllers\FileController@index');
-Route::get('/rechazarcomen', function () {
-    return view('rechazarcomen');
+Route::get('/ver','App\Http\Controllers\FileController@ver')->name('archivo');
+Route::delete('/ver/{id}','App\Http\Controllers\FileController@delete')->name('deletefile');
+Route::get('/ver/download/{file}','App\Http\Controllers\FileController@show');
+Route::post('/rechazo', 'App\Http\Controllers\RechazoController@store')->name('rechazo.store');
+Route::get('/rechazo', function () {
+    return view('rechazo');
 });
 
 Route::middleware(['auth'])->group(function(){
