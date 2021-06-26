@@ -35,7 +35,7 @@
                         <table class="table table-bordered table-striped">
                           <thead>
                             <tr>
-                              <th>ID</th>
+                              <th>ID Documento</th>
                               <th>ID Usuario</th>
                               <th>Nombre Archivo</th>
                               <th>Subido</th>
@@ -56,9 +56,6 @@
                               <a  class="btn btn-primary">
                                 Aprobar
                             </a>
-                            <a  class="btn btn-primary">
-                              Revisar
-                          </a>
                           <a  class="btn btn-primary" href="/rechazo"  onclick="return confirm('¿Está seguro de que desea rechazar el documento?')">
                             Rechazar
                         </a>
@@ -69,6 +66,15 @@
                           </tbody>
                         </table>
                       </div>
+                      <div class="form group">
+                        <select name="filtro_estado" id="filtro_estado" class="form-control"required>
+                          <option value="">Escoja estado</option>
+                          @foreach ($users as $user)
+                          <option value="{{$user->estado}}">Aprobado</option>
+                          <option value="">Rechazado</option>
+                          <option value="">Esperando revisión</option>
+                          @endforeach
+
                           <!-- /holiiii 
                           <nav aria-label="...">
                             <ul class="pagination">

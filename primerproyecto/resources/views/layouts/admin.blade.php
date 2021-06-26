@@ -23,6 +23,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link href="dropzone.css" rel="stylesheet" type="text/css">
   <link href="{{asset('css/dropzone.css')}}" rel="stylesheet">
   <script src={{asset('js/dropzone.js')}}></script>
+  <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css">
   <title>Notilog</title>
   <link rel="shortcut icon" href="img/partelogo.png" type="image/x-icon">
   <!-- CSRF Token -->

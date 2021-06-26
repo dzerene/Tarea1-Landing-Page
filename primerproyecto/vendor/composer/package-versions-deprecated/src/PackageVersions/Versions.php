@@ -72,7 +72,6 @@ final class Versions
   'nikic/php-parser' => 'v4.10.5@4432ba399e47c66624bc73c8c0f811e5c109576f',
   'opis/closure' => '3.6.2@06e2ebd25f2869e54a306dda991f7db58066f7f6',
   'paragonie/constant_time_encoding' => 'v2.4.0@f34c2b11eb9d2c9318e13540a1dbc2a3afbd939c',
-  'phpoffice/phpword' => '0.18.1@06b90e39a36872c6ee73534e1a073f4b3132fc6a',
   'phpoption/phpoption' => '1.7.5@994ecccd8f3283ecf5ac33254543eb0ac946d525',
   'pragmarx/google2fa' => '8.0.0@26c4c5cf30a2844ba121760fd7301f8ad240100b',
   'psr/container' => '1.1.1@8622567409010282b7aeebe4bb841fe98b58dcaf',
@@ -117,6 +116,7 @@ final class Versions
   'vlucas/phpdotenv' => 'v5.3.0@b3eac5c7ac896e52deab4a99068e3f4ab12d9e56',
   'voku/portable-ascii' => '1.5.6@80953678b19901e5165c56752d087fc11526017c',
   'webmozart/assert' => '1.10.0@6964c76c7804814a842473e0c8fd15bab0f18e25',
+  'yajra/laravel-datatables-oracle' => 'v9.18.0@b00f25b1941879b34e05f270835235a32b46567c',
   'doctrine/instantiator' => '1.4.0@d56bf6102915de5702778fe20f2de3b2fe570b5b',
   'facade/flare-client-php' => '1.8.0@69742118c037f34ee1ef86dc605be4a105d9e984',
   'facade/ignition' => '2.9.0@e7db3b601ce742568b92648818ef903904d20164',
@@ -157,7 +157,7 @@ final class Versions
   'sebastian/type' => '2.3.1@81cd61ab7bbf2de744aba0ea61fae32f721df3d2',
   'sebastian/version' => '3.0.2@c6c1022351a901512170118436c764e473f6de8c',
   'theseer/tokenizer' => '1.2.0@75a63c33a8577608444246075ea0af0d052e452a',
-  'laravel/laravel' => 'dev-master@67d2d2a4e7b8c6d8eb30e7ba06c8982f86ec5656',
+  'laravel/laravel' => 'dev-master@1034a7ce360615397cd3390b332621c211bda05b',
 );
 
     private function __construct()

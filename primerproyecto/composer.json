@@ -15,7 +15,8 @@
         "laravel/framework": "^8.12",
         "laravel/jetstream": "^2.3",
         "laravel/tinker": "^2.5",
-        "laravel/ui": "^3.2"
+        "laravel/ui": "^3.2",
+        "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

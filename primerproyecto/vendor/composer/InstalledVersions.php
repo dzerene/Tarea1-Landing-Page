@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '639d03e10d670b702bb71641f0d8e73baf69b8db',
+    'reference' => '1034a7ce360615397cd3390b332621c211bda05b',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -595,7 +595,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '639d03e10d670b702bb71641f0d8e73baf69b8db',
+      'reference' => '1034a7ce360615397cd3390b332621c211bda05b',
     ),
     'laravel/sail' => 
     array (
@@ -794,15 +794,6 @@ private static $installed = array (
       array (
       ),
       'reference' => '6a467b8989322d92aa1c8bf2bebcc6e5c2ba55c0',
-    ),
-    'phpoffice/phpword' => 
-    array (
-      'pretty_version' => '0.18.1',
-      'version' => '0.18.1.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '06b90e39a36872c6ee73534e1a073f4b3132fc6a',
     ),
     'phpoption/phpoption' => 
     array (
@@ -1472,6 +1463,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '6964c76c7804814a842473e0c8fd15bab0f18e25',
+    ),
+    'yajra/laravel-datatables-oracle' => 
+    array (
+      'pretty_version' => 'v9.18.0',
+      'version' => '9.18.0.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => 'b00f25b1941879b34e05f270835235a32b46567c',
     ),
     'zendframework/zend-escaper' => 
     array (
