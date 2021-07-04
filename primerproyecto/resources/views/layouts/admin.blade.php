@@ -119,6 +119,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
         <div class="user-panel mt-3 pb-3 mb-5 d-flex">
           <div class="image">
+            <img src="../img/home.png" class="img-circle elevation-2" alt="Home">
+          </div>
+          <div class="info">
+            <a href="/home">Inicio</a>
+          </div>
+        </div>
+        <div class="user-panel mt-3 pb-3 mb-5 d-flex">
+          <div class="image">
             <img src="../img/file.png" class="img-circle elevation-2" alt="Doc">
           </div>
           <div class="info">
@@ -206,15 +214,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Content Header (Page header) -->
       <div class="content-header">
         <div class="container-fluid">
-          <div class="row mb-2">
-            <div class="col-sm-6">
-            </div><!-- /.col -->
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-sm-right">
-                <li  class="breadcrumb-item"><a href="/home">Home</a></li>                
-              </ol>
-            </div><!-- /.col -->
-          </div><!-- /.row -->
         </div><!-- /.container-fluid -->
       </div>
       <!-- /.content-header -->
