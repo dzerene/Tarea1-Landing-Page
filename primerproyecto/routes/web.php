@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Notifications\recivedocument;
+use App\Notifications\statedocumentaprove;
+use App\Notifications\statedocumentreject;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,7 +47,6 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('post', PostController::class);
     Route::get('/post', [App\Http\Controllers\PostController::class, 'store'])->name('post');
     //Route::post('/post/create', 'PostController@store')->name('store');
-    Route::get('/post/notificationsx', 'PostController@notificationsx', 'notificationsx')->name('notificationsx');
     Route::get('/notification', function(){
         $id=Auth::id();
         User::all()
@@ -54,6 +55,24 @@ Route::middleware(['auth'])->group(function(){
                 $user->notify(new recivedocument);
             });
         return view('uploadfile');
+    });
+    Route::get('/notificationaprove', function(){
+        $id=Auth::id();
+        User::all()
+            ->except($id)
+            ->each(function(User $user) {
+                $user->notify(new statedocumentaprove);
+            });
+        return view('uploadfile');
+    });
+    Route::get('/notificationreject', function(){
+        $id=Auth::id();
+        User::all()
+            ->except($id)
+            ->each(function(User $user) {
+                $user->notify(new statedocumentreject);
+            });
+        return view('rechazo');
     });
     Route::get('markAsRead',function(){
         auth()->user()->unreadNotifications->markAsRead();

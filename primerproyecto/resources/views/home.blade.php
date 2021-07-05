@@ -53,10 +53,10 @@
                             <td>{{ $user->estado}}</td>
                             <td> 
                               
-                              <a  class="btn btn-primary">
+                              <button  onclick="window.location.href='/notificationaprove';" class="btn btn-primary">
                                 Aprobar
-                            </a>
-                          <a  class="btn btn-primary" href="/rechazo"  onclick="return confirm('¿Está seguro de que desea rechazar el documento?')">
+                              </button>
+                          <a  href="/notificationreject" class="btn btn-primary"  onclick="return confirm('¿Está seguro de que desea rechazar el documento?')">
                             Rechazar
                         </a>
                               
