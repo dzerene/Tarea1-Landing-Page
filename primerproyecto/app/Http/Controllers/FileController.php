@@ -22,7 +22,17 @@ class FileController extends Controller
 
       return back()->with('message', 'Tu archivo se ha subido exitosamente');
     }
-
+    public function Confirm(Request $request)
+    {
+        $id = $request->input('v');
+        $status=$request->input('estado');
+    
+        DB::table('uploads')
+                ->where('id',$id)
+                ->update(['estado'=>$status]);
+      return back()->with('message', 'Tu archivo se ha subido exitosamente');   
+    
+    }
     public function upload(Request $request)
     {
       $uploadedFile = $request->file('file');

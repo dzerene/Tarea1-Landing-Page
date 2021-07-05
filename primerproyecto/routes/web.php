@@ -37,6 +37,7 @@ Route::delete('/ver/{id}','App\Http\Controllers\FileController@delete')->name('d
 Route::get('/ver/download/{file}','App\Http\Controllers\FileController@show');
 Route::post('/rechazo', 'App\Http\Controllers\RechazoController@store')->name('rechazo.store');
 Route::resource('filtro','App\Http\Controllers\FiltroController');
+Route::post('/home','App\Http\Controllers\FileController@confirm');
 Route::get('/rechazo', function () {
     return view('rechazo');
 });
