@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-9">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
@@ -23,7 +23,7 @@
 @endsection
 
 @section('seccione')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+<link media="screen and (max-width: 480px)" href="mobile.css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
               <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
             
                 <div class="card">
@@ -46,12 +46,12 @@
                           <tbody>
                           @foreach ($users as $user)
                             <tr>
-                            <td>{{ $user->id }}</td>
-                            <td>{{ $user->user_id }}</td>
-                            <td>{{ $user->filename }}</td>
-                            <td>{{ $user->created_at}}</td>
-                            <td>{{ $user->estado}}</td>
-                            <td> 
+                            <td data-label="ID Documento">{{ $user->id }}</td>
+                            <td data-label="ID Usuario">{{ $user->user_id }}</td>
+                            <td data-label="Nombre Archivo">{{ $user->filename }}</td>
+                            <td data-label="Subido">{{ $user->created_at}}</td>
+                            <td data-label="Estado">{{ $user->estado}}</td>
+                            <td data-label="Acción"> 
                               
                               <a  class="btn btn-primary">
                                 Aprobar
