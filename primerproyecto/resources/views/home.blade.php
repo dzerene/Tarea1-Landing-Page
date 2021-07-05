@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-9">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 
@@ -23,17 +23,17 @@
 @endsection
 
 @section('seccione')
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+<link media="screen and (max-width: 480px)" href="mobile.css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
               <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
-            
+              <link rel="stylesheet" href="css/plantilla.css">
                 <div class="card">
                         <div class="card-header">
                           <h3 class="card-title">Información de los documentos</h3>
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body">
-                        <table class="table table-bordered table-striped">
-                          <thead>
+                        <div class="table-responsive">
+                        <table class="table table-bordered table-striped table borderless table-hover">
+                          <thead class="thead-dark">
                             <tr>
                               <th>ID Documento</th>
                               <th>ID Usuario</th>
@@ -46,19 +46,42 @@
                           <tbody>
                           @foreach ($users as $user)
                             <tr>
-                            <td>{{ $user->id }}</td>
-                            <td>{{ $user->user_id }}</td>
-                            <td>{{ $user->filename }}</td>
-                            <td>{{ $user->created_at}}</td>
-                            <td>{{ $user->estado}}</td>
-                            <td> 
+                            <td data-label="ID Documento">{{ $user->id }}</td>
+                            <td data-label="ID Usuario">{{ $user->user_id }}</td>
+                            <td data-label="Nombre Archivo">{{ $user->filename }}</td>
+                            <td data-label="Subido">{{ $user->created_at}}</td>
+                            <td data-label="Estado">{{ $user->estado}}</td>
+                            <td data-label="Acción"> 
                               
+<<<<<<< HEAD
                               <button  onclick="window.location.href='/notificationaprove';" class="btn btn-primary">
                                 Aprobar
                               </button>
                           <a  href="/notificationreject" class="btn btn-primary"  onclick="return confirm('¿Está seguro de que desea rechazar el documento?')">
+=======
+                              <form action="/home" method="POST" >
+                                @csrf
+                                <div class="input-group">
+                                    <input type="hidden" class="form-control" name="v" value="{{$user->id}}">
+                                        <select required class="form-control" id="estado"  name="estado" >
+                                            <option value="Pendiente">Pendiente</option>          
+                                            <option value="Aprobado" >Aprobar</option>  
+                                            <option value="Rechazado">Rechazar</option>  
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary" >
+                                        <span>Confirmar </span>
+                                    </button>
+                                </div>
+                            </form>
+                            
+                          <a  class="btn btn-primary btn-danger btn-sm" href="/rechazo"  onclick="return confirm('¿Está seguro de que desea rechazar el documento?')">
+>>>>>>> 45805191b954a86fa12a38a9e8cab1eaf1f442a9
                             Rechazar
                         </a>
+                        <a  class="btn btn-primary btn-warning btn-sm">
+                          En revision
+                      </a>
                               
                             </td>
                             </tr>
@@ -66,33 +89,7 @@
                           </tbody>
                         </table>
                       </div>
-                      <div class="form group">
-                        <select name="filtro_estado" id="filtro_estado" class="form-control"required>
-                          <option value="">Escoja estado</option>
-                          @foreach ($users as $user)
-                          <option value="{{$user->estado}}">Aprobado</option>
-                          <option value="">Rechazado</option>
-                          <option value="">Esperando revisión</option>
-                          @endforeach
-
-                          <!-- /holiiii 
-                          <nav aria-label="...">
-                            <ul class="pagination">
-                              <li class="page-item ">
-                                <a class="page-link" href="#" tabindex="-1">Previous</a>
-                              </li>
-                              <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">3</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                              </li>
-                            </ul>
-                          </nav>
-                           -->
-                </div>
+                      
                 <!-- /.card -->
               </section>
       <!-- /.content -->

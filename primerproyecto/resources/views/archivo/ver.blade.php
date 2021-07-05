@@ -7,7 +7,8 @@
             <div class="card">
                 <img class= "card-img-top" src="">
                 <div class="card body">
-                    <strong class="card title">{{$file->filename}}</strong>
+                    <strong class="card title">ID:{{$file->id}}</strong>
+                    <strong class="card-text">{{$file->filename}}</strong>
                     <p class="card-text"></p>
                     <form action="{{route('deletefile',$file->id)}}" method="POST">
                         @csrf

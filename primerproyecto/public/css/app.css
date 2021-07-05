@@ -59,6 +59,7 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
 }
 
 body {
+  
   margin: 0;
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 1rem;
@@ -67,6 +68,8 @@ body {
   color: #212529;
   text-align: left;
   background-color: #ffffff;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -48016,4 +48019,46 @@ readers do not read off random characters that represent icons */
 .fab {
   font-family: "Font Awesome 5 Brands";
   font-weight: 400;
+}
+
+@media screen
+and (device-width: 320px)
+and (device-height: 640px)
+and (-webkit-device-pixel-ratio: 2)
+and (orientation: landscape) {
+  #container form{
+    width: 90%
+  }
+  #seccione form{
+    width: 90%
+}
+}
+
+@media screen and (max-width: 600px) {
+  .table {
+    border: 0px;
+  }
+  .table tr{
+    margin-bottom: 8px;
+    border-bottom: 4px solid #ddd;
+    display: block;
+  }
+  .table th, .table td{
+    font-size: 12px;
+  }
+  .table td{
+    display: block;
+    border-bottom: 1px solid #ddd;
+    text-align: right;
+  }
+  .table thead{
+    display: none;
+    
+  }
+  .table td::before{
+    content: attr(data-label);
+    font-weight: bold;
+    text-transform: uppercase ;
+    float: left;
+  }
 }
