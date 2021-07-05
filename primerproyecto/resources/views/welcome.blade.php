@@ -161,7 +161,7 @@
             </div>
         </div>
         <h2 class="titulo-final">&copy; Notilog Design | Dario Martinez - Esteban Vargas - Diego Zerené - Francisco
-            Valdez - Cristian San Martin</h2>
+            Valdez</h2>
     </footer>
 </body>
 
