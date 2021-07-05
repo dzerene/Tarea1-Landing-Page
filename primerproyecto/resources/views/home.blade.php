@@ -25,15 +25,15 @@
 @section('seccione')
 <link media="screen and (max-width: 480px)" href="mobile.css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
               <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
-            
+              <link rel="stylesheet" href="css/plantilla.css">
                 <div class="card">
                         <div class="card-header">
                           <h3 class="card-title">Información de los documentos</h3>
                         </div>
                         <!-- /.card-header -->
-                        <div class="card-body">
-                        <table class="table table-bordered table-striped">
-                          <thead>
+                        <div class="table-responsive">
+                        <table class="table table-bordered table-striped table borderless table-hover">
+                          <thead class="thead-dark">
                             <tr>
                               <th>ID Documento</th>
                               <th>ID Usuario</th>
@@ -53,12 +53,15 @@
                             <td data-label="Estado">{{ $user->estado}}</td>
                             <td data-label="Acción"> 
                               
-                              <a  class="btn btn-primary">
+                              <a  class="btn btn-primary btn-sm">
                                 Aprobar
                             </a>
-                          <a  class="btn btn-primary" href="/rechazo"  onclick="return confirm('¿Está seguro de que desea rechazar el documento?')">
+                          <a  class="btn btn-primary btn-danger btn-sm" href="/rechazo"  onclick="return confirm('¿Está seguro de que desea rechazar el documento?')">
                             Rechazar
                         </a>
+                        <a  class="btn btn-primary btn-warning btn-sm">
+                          En revision
+                      </a>
                               
                             </td>
                             </tr>
@@ -66,33 +69,7 @@
                           </tbody>
                         </table>
                       </div>
-                      <div class="form group">
-                        <select name="filtro_estado" id="filtro_estado" class="form-control"required>
-                          <option value="">Escoja estado</option>
-                          @foreach ($users as $user)
-                          <option value="{{$user->estado}}">Aprobado</option>
-                          <option value="">Rechazado</option>
-                          <option value="">Esperando revisión</option>
-                          @endforeach
-
-                          <!-- /holiiii 
-                          <nav aria-label="...">
-                            <ul class="pagination">
-                              <li class="page-item ">
-                                <a class="page-link" href="#" tabindex="-1">Previous</a>
-                              </li>
-                              <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">3</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                              </li>
-                            </ul>
-                          </nav>
-                           -->
-                </div>
+                      
                 <!-- /.card -->
               </section>
       <!-- /.content -->
