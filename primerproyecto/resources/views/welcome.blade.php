@@ -72,7 +72,7 @@
                         <div class="hover-galeria">
                             <img src="img/icono.png" alt="">
                             <p>Esteban Simon Vargas Aceña</p>
-                            <h4>Development Team</h4>
+                            <p>Development Team</p>
                         </div>
                     </div>
                     <div class="imagen-port">
@@ -80,7 +80,7 @@
                         <div class="hover-galeria">
                             <img src="img/icono.png" alt="">
                             <p>Diego Andres Zerené Avila</p>
-                            <h4>Development Team</h4>
+                            <p>Development Team</p>
                         </div>
                     </div>
                     <div class="imagen-port">
@@ -88,7 +88,7 @@
                         <div class="hover-galeria">
                             <img src="img/icono.png" alt="">
                             <p>Dario Alonso Martínez Toy</p>
-                            <h4>Product Owner</h4>
+                            <p>Product Owner</p>
                         </div>
                     </div>
                     <div class="imagen-port">
@@ -96,7 +96,7 @@
                         <div class="hover-galeria">
                             <img src="img/icono.png" alt="">
                             <p>Francisco Javier Valdés Martínez</p> 
-                            <h4>Scrum Master</h4>                           
+                            <p>Scrum Master</p>                           
                         </div>
                     </div>
                 </div>

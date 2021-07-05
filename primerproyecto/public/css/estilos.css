@@ -180,7 +180,7 @@ header .textos-header{
 }
 
 /* CLIENTED */
-.cards{
+/*.cards{
     display: flex;
     justify-content: space-evenly;
 }
@@ -214,11 +214,11 @@ header .textos-header{
     font-weight: 300;
     padding-top: 5px;
 
-}
+}*/
 
 /* our team */
 
-.about-services{
+/*.about-services{
     background: #f2f2f2;
     padding-bottom: 30px;
 }
@@ -246,7 +246,7 @@ header .textos-header{
 .servicio-ind p{
     font-weight: 300;
     text-align: justify;
-}
+}*/
 
 /* footer*/
 
@@ -286,4 +286,41 @@ footer{
     font-size: 24px;
     margin: 20px 0 0 0;
     color: #9e9797
+}
+
+@media screen and (max-width:900px) {
+    header {
+        background-position: center center;
+    }
+    /*galeria*/
+    .imagen-port{
+        width: 44%;
+
+    }
+}
+
+@media screen and (max-width:500px){
+    .imagen-port{
+        width:95%
+
+    }
+    .contenedor-footer{
+        flex-direction: column;
+        border: none;
+    }
+    .content-foo{
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    /*.content-foo h4{
+        border-bottom: none;
+    }
+    .content-foo h4{
+        color: #ccc;
+        border-bottom: 1px solid #f2f2f2;
+        padding-bottom: 20px;
+    }*/
+    .titulo-final{
+        font-size: 20px;
+    }
 }

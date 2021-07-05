@@ -69,33 +69,7 @@
                           </tbody>
                         </table>
                       </div>
-                      <div class="form group">
-                        <select name="filtro_estado" id="filtro_estado" class="form-control"required>
-                          <option value="">Escoja estado</option>
-                          @foreach ($users as $user)
-                          <option value="{{$user->estado}}">Aprobado</option>
-                          <option value="">Rechazado</option>
-                          <option value="">Esperando revisión</option>
-                          @endforeach
-
-                          <!-- /holiiii 
-                          <nav aria-label="...">
-                            <ul class="pagination">
-                              <li class="page-item ">
-                                <a class="page-link" href="#" tabindex="-1">Previous</a>
-                              </li>
-                              <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">3</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                              </li>
-                            </ul>
-                          </nav>
-                           -->
-                </div>
+                      
                 <!-- /.card -->
               </section>
       <!-- /.content -->
