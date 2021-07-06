@@ -53,35 +53,24 @@
                             <td data-label="Estado">{{ $user->estado}}</td>
                             <td data-label="Acción"> 
                               
-<<<<<<< HEAD
-                              <button  onclick="window.location.href='/notificationaprove';" class="btn btn-primary">
-                                Aprobar
-                              </button>
-                          <a  href="/notificationreject" class="btn btn-primary"  onclick="return confirm('¿Está seguro de que desea rechazar el documento?')">
-=======
+            
+               
                               <form action="/home" method="POST" >
                                 @csrf
                                 <div class="input-group">
                                     <input type="hidden" class="form-control" name="v" value="{{$user->id}}">
-                                        <select required class="form-control" id="estado"  name="estado" >
+                                        <select required class="form-control" id="estado"  name="estado" onchange='if(this.value != 0) { this.form.submit(); } if(this.value == "Aprobado"){}'>
                                             <option value="Pendiente">Pendiente</option>          
                                             <option value="Aprobado" >Aprobar</option>  
                                             <option value="Rechazado">Rechazar</option>  
                                         </select>
                                     </div>
-                                    <button type="submit" class="btn btn-primary" >
-                                        <span>Confirmar </span>
-                                    </button>
+
                                 </div>
                             </form>
-                            
-                          <a  class="btn btn-primary btn-danger btn-sm" href="/rechazo"  onclick="return confirm('¿Está seguro de que desea rechazar el documento?')">
->>>>>>> 45805191b954a86fa12a38a9e8cab1eaf1f442a9
-                            Rechazar
-                        </a>
-                        <a  class="btn btn-primary btn-warning btn-sm">
-                          En revision
-                      </a>
+                            <button onclick="window.location.href='/notificationaprove';" type="submit" class="btn btn-primary" >
+                                       Confirmar 
+                                    </button>
                               
                             </td>
                             </tr>

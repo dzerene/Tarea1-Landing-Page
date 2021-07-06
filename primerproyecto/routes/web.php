@@ -64,7 +64,7 @@ Route::middleware(['auth'])->group(function(){
             ->each(function(User $user) {
                 $user->notify(new statedocumentaprove);
             });
-        return view('uploadfile');
+            return redirect('/home');
     });
     Route::get('/notificationreject', function(){
         $id=Auth::id();

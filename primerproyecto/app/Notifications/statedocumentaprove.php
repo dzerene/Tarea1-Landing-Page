@@ -49,7 +49,7 @@ class statedocumentaprove extends Notification
     {
         $abc=auth()->user()->name;
         return (new MailMessage)
-                    ->line('Su documento fue aprobado por:', $abc)
+                    ->line('El estado del documento ha sido cambiado por:', $abc)
                     ->line($abc)
                     ->action('Ver documentos', url('/home'));
     }
