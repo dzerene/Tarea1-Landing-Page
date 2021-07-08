@@ -48,8 +48,6 @@ class recivedocument extends Notification
                     ->action('Revisar', url('/home'));
     }
     public function toDatabase( ){
-        $uploadedFile = $request->file('file');
-        $filename =$uploadedFile->getClientOriginalName();
         return[
             'name'=>auth()->user()->name,
             'MSG'=> 'Ingresó documento'
