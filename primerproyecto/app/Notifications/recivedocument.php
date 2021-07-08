@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Notifications;
-
+use App\Models\Upload;
+use DB;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -41,13 +42,17 @@ class recivedocument extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
+                    ->subject('Se ha ingresado un nuevo documento')
+                    ->greeting('Notilog')    
                     ->line('Ha llegado un nuevo documento que evaluar.')
                     ->action('Revisar', url('/home'));
     }
     public function toDatabase( ){
+        $uploadedFile = $request->file('file');
+        $filename =$uploadedFile->getClientOriginalName();
         return[
             'name'=>auth()->user()->name,
-            'MSG'=> 'Ingreso documento'
+            'MSG'=> 'Ingresó documento'
         ];
     }
 

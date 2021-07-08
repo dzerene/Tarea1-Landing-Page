@@ -31,6 +31,7 @@
                           <h3 class="card-title">Información de los documentos</h3>
                         </div>
                         <!-- /.card-header -->
+                        
                         <div class="table-responsive">
                         <table class="table table-bordered table-striped table borderless table-hover">
                           <thead class="thead-dark">
@@ -59,7 +60,7 @@
                                 @csrf
                                 <div class="input-group">
                                     <input type="hidden" class="form-control" name="v" value="{{$user->id}}">
-                                        <select required class="form-control" id="estado"  name="estado" onchange='if(this.value != 0) { this.form.submit(); } if(this.value == "Aprobado"){}'>
+                                        <select required class="form-control" id="estado"  name="estado" onchange='if(this.value != 0) { this.form.submit(); }'>
                                             <option value="Pendiente">Pendiente</option>          
                                             <option value="Aprobado" >Aprobar</option>  
                                             <option value="Rechazado">Rechazar</option>  
@@ -99,5 +100,6 @@
       </script>
 
     </body>
+    
 @endsection
 

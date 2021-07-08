@@ -49,6 +49,8 @@ class statedocumentaprove extends Notification
     {
         $abc=auth()->user()->name;
         return (new MailMessage)
+                    ->subject('Se ha evaluado un documento')
+                    ->greeting('Notilog')    
                     ->line('El estado del documento ha sido cambiado por:', $abc)
                     ->line($abc)
                     ->action('Ver documentos', url('/home'));

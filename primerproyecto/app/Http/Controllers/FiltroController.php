@@ -8,7 +8,7 @@ use DB;
 class FiltroController extends Controller
 {
     function index(Request $request){
-        $documento=DB::table('uploads')->select('estado')->groupBy('estado')->orderBy('Controller','ASC')->get();
+        $documento=DB::table('uploads')->select('estado')->groupBy('estado')->get();
         return view('home',['users'=>$documento]);
     }
 }

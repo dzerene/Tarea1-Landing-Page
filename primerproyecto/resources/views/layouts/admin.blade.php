@@ -51,7 +51,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             {{(count(auth()->user()->unreadNotifications))}}</span>
           </a>
           <div class="dropdown-menu dropdown-menu-lg dropdown-menu">
-          <span class="dropdown-header">New Notifications</span>
+          <span class="dropdown-header">Notificaciones nuevas</span>
           @forelse(auth()->user()->unreadNotifications as $notification)
           <a href="#" class="dropdown-item">
               <i class="fas fa-envelope mr-2"></i> 
@@ -61,9 +61,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <div class="dropdown-divider"></div>
             </a>
           @empty
-          <span class="float text-muted text-sm"> Sin notificaicones nuevas</span>
+          <span class="float text-muted text-sm"> Sin notificaciones nuevas</span>
           @endforelse
-          <span class="dropdown-header">Notifications reads</span>
+          <span class="dropdown-header">Leídas</span>
           @foreach (auth()->user()->readNotifications as $notification)
           <a href="#" class="dropdown-item">
               <i class="fas fa-envelope mr-2"></i> 
@@ -73,7 +73,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           @endforeach
           <div class="dropdown-divider"></div>
-          <a href="{{ route('markAsRead')}}" class="dropdown-item dropdown-footer"> Mark all read.</a>
+          <a href="{{ route('markAsRead')}}" class="dropdown-item dropdown-footer"> Marcar todas leídas.</a>
             
             
         </li>
@@ -82,18 +82,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
               class="fas fa-th-large"></i></a>
         </li>
       </ul>
-
-      <!-- SEARCH FORM -->
-      <form class="form-inline ml-3">
-        <div class="input-group input-group-sm">
-          <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-navbar" type="submit">
-              <i class="fas fa-search"></i>
-            </button>
-          </div>
-        </div>
-      </form>
     </nav>
     <!-- /.navbar -->
 
