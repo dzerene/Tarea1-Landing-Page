@@ -36,3 +36,5 @@ Criterios de aceptacion:
 # Tareas
 
 ![image](https://user-images.githubusercontent.com/80586612/118409834-5a1b9100-b65a-11eb-9315-75f0ed059d7b.png)
+
+![image](https://user-images.githubusercontent.com/80586612/124855700-58de5480-df77-11eb-90e8-c9d19eb3b611.png)
